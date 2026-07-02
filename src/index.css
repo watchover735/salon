@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    background-color: #050505;
+    /* Lenis controls scroll; keep native smooth off */
+    scroll-behavior: auto;
+  }
+
+  body {
+    margin: 0;
+    background-color: #050505;
+    color: #ffffff;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* Lenis recommended styles */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  ::selection {
+    background: rgba(212, 175, 55, 0.25);
+    color: #ffffff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@layer components {
+  .glass {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.015)
+    );
+    backdrop-filter: blur(18px) saturate(120%);
+    -webkit-backdrop-filter: blur(18px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
+      0 30px 60px -30px rgba(0, 0, 0, 0.9);
+  }
+
+  .glass-gold {
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    box-shadow:
+      0 1px 0 0 rgba(212, 175, 55, 0.15) inset,
+      0 30px 70px -30px rgba(139, 0, 0, 0.35);
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(180deg, #f6e6b0 0%, #d4af37 55%, #9a7b1f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* thin luxe hairline */
+  .hairline {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(212, 175, 55, 0.5),
+      transparent
+    );
+  }
+}
+
+@layer utilities {
+  .will-fade {
+    will-change: opacity, transform;
+  }
+  .drag-none {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+}
